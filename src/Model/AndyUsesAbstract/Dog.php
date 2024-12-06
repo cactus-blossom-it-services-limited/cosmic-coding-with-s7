@@ -2,7 +2,7 @@
 
 namespace App\Model\AndyUsesAbstract;
 
-use App\Model\AndyUsesAbstract\Animal;
+require_once 'Animal.php';
 
 class Dog extends Animal
 {
@@ -10,5 +10,10 @@ class Dog extends Animal
     public function makeSound()
     {
         echo 'Woof!';
+    }
+
+    public function getName()
+    {
+        return $this->name . ' (cute doggy)';
     }
 }
