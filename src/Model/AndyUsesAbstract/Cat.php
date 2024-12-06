@@ -13,7 +13,7 @@ class Cat extends Animal
     }
 
     public function getName() {
-        return $this->name;
+        return $this->name . ' (feline sounding)';
     }
 
 }
