@@ -2,7 +2,7 @@
 
 namespace App\Model\AndyUsesAbstract;
 
-require_once 'Animal.php';
+include_once 'Animal.php';
 
 class Cat extends Animal
 {

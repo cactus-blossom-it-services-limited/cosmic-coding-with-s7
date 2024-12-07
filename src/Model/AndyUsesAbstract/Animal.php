@@ -2,10 +2,9 @@
 
 namespace App\Model\AndyUsesAbstract;
 
-require_once 'Group.php';
+include_once 'Group.php';
 
-abstract class Animal
-{
+abstract class Animal {
     protected $name;
     protected Group $group;
 
