@@ -45,7 +45,35 @@ class MainController extends AbstractController
         var_dump($propertyAccessor1->getValue($persons, '[0][first_name]')); // Wouter
         var_dump($propertyAccessor1->getValue($persons, '[1][first_name]')); // Ryan
 
-        $starsheeps = [
+        $starliner_children = [
+            new Starship(
+                79,
+                'HMS Childers',
+                'Child',
+                'John The Captain',
+                'Growing',
+            ),
+            new Starship(
+                80,
+                'HMS Childing',
+                'Child',
+                'John Smith',
+                'Growing',
+            ),
+            ];
+
+        $starliner =
+            new Starship(
+                22,
+                'HMS Compliant',
+                'Able',
+                'Geoff',
+                'taken over',
+                $starliner_children,
+
+            );
+
+        $starliners = [
             new Starship(
                 1,
                 'USS MyCruise',
@@ -69,7 +97,10 @@ class MainController extends AbstractController
             ),
         ];
 
-        
+        var_dump($propertyAccessor->getValue($starliner, 'id')); // 22
+
+        var_dump($propertyAccessor->getValue($starliner, 'children[0].captain')); // John The Captain
+        var_dump($propertyAccessor->getValue($starliner, 'children[1].status')); // Growing
 
 
 ///////////////////////////////////////////////////////////////////////////////////////

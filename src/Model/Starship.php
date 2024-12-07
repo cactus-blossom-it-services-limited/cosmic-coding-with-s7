@@ -10,7 +10,13 @@ class Starship
         private string $class,
         private string $captain,
         private string $status,
+        private array $children = [],
     ) {
+    }
+
+    public function getChildren(): null|array
+    {
+        return $this->children;
     }
 
     /**
