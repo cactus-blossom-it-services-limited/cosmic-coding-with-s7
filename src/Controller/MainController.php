@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Dinosaur;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -107,6 +108,16 @@ class MainController extends AbstractController
 
         /* From the SymfonyCasts tutorials */
 
+        /* From Symfonycasts Testing tutorials */
+
+        $dinos = [
+            new Dinosaur('Daisy', 'Velociraptor', 2, 'Paddock A'),
+            new Dinosaur('Maverick','Pterodactyl', 7, 'Aviary 1'),
+            new Dinosaur('Big Eaty', 'Tyrannosaurus', 15, 'Paddock C'),
+            new Dinosaur('Dennis', 'Dilophosaurus', 6, 'Paddock B'),
+            new Dinosaur('Bumpy', 'Triceratops', 10, 'Paddock B'),
+        ];
+
         $starshipCount = 457;
         $myShip = [
             'name' => 'USS LeafyCruiser (NCC-0001)',
@@ -118,6 +129,7 @@ class MainController extends AbstractController
         return $this->render('main/homepage.html.twig', [
             'numberOfStarships' => $starshipCount,
             'myShip' => $myShip,
+            'dinos' => $dinos,
         ]);
     }
 }
