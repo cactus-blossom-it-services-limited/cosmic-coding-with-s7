@@ -17,7 +17,9 @@ symfony console dbal:run-sql 'SELECT * FROM product'
 Check if user entity exists
 Add the email field to user entity
 Migrate user entity
-Execute migration: update database schema eg user table
+Execute migration: update database schema eg user table. Run:
+symfony console make:migration then:
+symfony console doctrine:migrations:migrate
 Create a single user as a fixture; use the details in the symfonycast on symfony security
 Create other users as fixtures using foreach loop; generate random alphanumeric names
 Code to generate random alphabetical strings:
