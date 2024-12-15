@@ -3,14 +3,55 @@
 {% block title %}Hello SessionController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section class="grid max-w-8xl gap-4 mx-4">
+        {# read and display just one flash message type, ici the 'notice' type #}
+{#        {% for message in app.flashes('tailwind_notice') %}#}
+{#            <div class="flash-notice">#}
+{#                {{ message }}#}
+{#            </div>#}
+{#        {% endfor %}#}
+        {# same but without clearing them from the flash bag #}
+        {# on every page refresh another version of the message appears #}
+        {# this is no good as it just repeats the message over and over again #}
+{#        {% for message in app.session.flashbag.peek('tailwind_notice') %}#}
+{#            <div class="flash-notice">#}
+{#                {{ message }}#}
+{#            </div>#}
+{#        {% endfor %}#}
+        {# read and display several types of flash messages #}
+        {% for label, messages in app.flashes(['tailwind_notice', 'notice']) %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    <h1 class="align-content-2xl-center">Bonjour du contrôleur qui est nommé {{ controller_name }}! ✅</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    <p>The word {{ foo }} is retrieved from session storage</p>
-    <p>This site is now styled using Tailwind</p>
-</div>
+    <table class="border-separate border-spacing-2 border my-4 border-slate-600">
+        <thead>
+        <caption class="caption-top">
+            Song values retrieved from session storage
+        </caption>
+        <tr>
+            <th class="border border-slate-600">Song</th>
+            <th class="border border-slate-600">Artist</th>
+            <th class="border border-slate-600">Year</th>
+        </tr>
+        <tbody>
+        {% for best_song in best_songs %}
+            <tr>
+                <td class="border border-slate-600">{{ best_song.song }}</td>
+                <td class="border border-slate-600">{{ best_song.artist }}</td>
+                <td class="border border-slate-600">{{ best_song.year }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td class="border border-slate-600">{{ good_song.song }}</td>
+            <td class="border border-slate-600">{{ good_song.artist }}</td>
+            <td class="border border-slate-600">{{ good_song.year }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </section>
 {% endblock %}
