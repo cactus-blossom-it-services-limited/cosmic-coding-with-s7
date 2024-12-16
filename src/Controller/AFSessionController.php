@@ -54,10 +54,10 @@ class AFSessionController extends AbstractController
             'tailwind_notice',
             'AF\'s flash message: Hey, these pages are styled using Tailwind'
         );
-        return $this->render('session/index.html.twig', [
+        return $this->render('session/af_session.html.twig', [
             'controller_name' => 'SessionController',
             'best_songs' => $best_songs,
             'good_song' => $good_song,
-        ]);
+        ])->setMaxAge(100);
     }
 }
