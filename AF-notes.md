@@ -14,6 +14,8 @@
 - By default, sessions cookies are created for anonymous users
 - This can impact performance
 - [ ] Store sessions in the database
+- [ ] Use debugging commands for session configuration
+- [Symfony docs session configuration](https://symfony.com/doc/current/reference/configuration/framework.html#config-framework-session)
 - [store sessions in a database](https://symfony.com/doc/current/session.html#store-sessions-in-a-database)
 - [ ] Login to the site
 - [ ] Make sure that users can register or be manually loaded
