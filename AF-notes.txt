@@ -1,0 +1,38 @@
+Tasks 11.12.2024
+Recreate database (in docker)
+docker compose up -d
+symfony serve -d
+To access the database you can use:
+docker compose exec database psql --user app --password app
+or
+psql --user=app --port=59864 --host=127.0.0.1 --password
+To view all symfony environmental variables including database-related:
+symfony var:export --multiline
+Drop the existing database:
+symfony console doctrine:database:drop
+Recreate the database:
+symfony console doctrine:database:create
+To query the postgres database run:
+symfony console dbal:run-sql 'SELECT * FROM product'
+Check if user entity exists
+Add the email field to user entity
+Migrate user entity
+Execute migration: update database schema eg user table. Run:
+symfony console make:migration then:
+symfony console doctrine:migrations:migrate
+Create a single user as a fixture; use the details in the symfonycast on symfony security
+Create other users as fixtures using foreach loop; generate random alphanumeric names
+Code to generate random alphabetical strings:
+   $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+   $randomString = substr(str_shuffle($characters), 0, $length);
+   // Generate a random string of length 8
+   $randomString = generateRandomString(8);
+Load the fixtures:
+php bin/console doctrine:fixtures:load
+NB: by default that will purge the whole db, every table
+Use --append option to append fixtures data instead
+
+
+
+
+

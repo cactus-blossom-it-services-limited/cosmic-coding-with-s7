@@ -3,17 +3,27 @@
 namespace App\Controller;
 
 use App\Entity\Dinosaur;
+use App\Model\Starship;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\PropertyAccess\PropertyAccess;
-use App\Model\Starship;
+use Symfony\Component\Routing\Attribute\Route;
 
 class MainController extends AbstractController
 {
     #[Route('/',)]
     public function homepage(): Response
     {
+        // This one-liner will start the session
+        // No session class use statement is required
+//        $session = $request->getSession();
+        // Or add session class use statement and two more lines
+        $session = new Session();
+        $session->start();
+        $best_songs = $session->get('songs');
+        dd($best_songs);
+
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
         $person = [
