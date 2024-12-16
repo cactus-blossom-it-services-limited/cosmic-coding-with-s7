@@ -46,6 +46,12 @@
 ### Doctrine database
 - [ ] Clean up the multiple migrations
 - https://symfonycasts.com/blog/clean-up-migrations
+- [x] Change the postgres database user password
+- Run: `docker compose ps` to find the external port number
+- Then run: `psql --user=app --port=32770 --host=127.0.0.1 --password app` where 'app' is name of db
+- In psql client run: `ALTER USER user_name WITH PASSWORD 'new_password';`
+- Alternatively run: `docker compose exec database psql --username app --password app` then enter the password
+  `
 `code`
 Link 	[title](https://www.example.com)
 **bold text**
