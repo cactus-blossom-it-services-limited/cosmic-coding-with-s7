@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AFTwiggyController!{% endblock %}
+
+{% block body %}
+
+
+<section class="grid max-w-8xl gap-4 mx-4">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>/Users/andrew/My_Symfony/November-2024/SymfonyCast-videos/starshop/src/Controller/AFTwiggyController.php</code></li>
+        <li>Your template at <code>/Users/andrew/My_Symfony/November-2024/SymfonyCast-videos/starshop/templates/af_twiggy/index.html.twig</code></li>
+    </ul>
+    {% if constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') is defined %}
+        <h1>The kernel version is: {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+    {% endif %}
+</section>
+{% endblock %}
