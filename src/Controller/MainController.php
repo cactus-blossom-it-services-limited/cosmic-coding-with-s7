@@ -22,7 +22,6 @@ class MainController extends AbstractController
         $session = new Session();
         $session->start();
         $best_songs = $session->get('songs');
-        dd($best_songs);
 
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
@@ -136,10 +135,13 @@ class MainController extends AbstractController
             'status' => 'under construction',
         ];
 
+        $holiday_price = 4894;
+
         return $this->render('main/homepage.html.twig', [
             'numberOfStarships' => $starshipCount,
             'myShip' => $myShip,
             'dinos' => $dinos,
+            'holiday_price' => $holiday_price,
         ]);
     }
 }
