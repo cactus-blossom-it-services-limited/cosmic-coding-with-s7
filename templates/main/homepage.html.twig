@@ -46,9 +46,17 @@
 </div>
 
     <div>
-        <h1>AF custom function</h1>
+        <h1>Mon filtre personnalise</h1>
         <p>The price of the holiday in Menorca is: {{ holiday_price|price() }}</p>
-        <h1>Mon Custom filter</h1>
-        <p>The floorplan of the studio flat covers {{ area(3.8, 4.85) }} square metres</p>
+        <h1>Ma fonction personnalise</h1>
+        <p>The area of the floorplan of the studio flat is {{ area(3.8, 4.85)|round(2, 'floor') }} square metres</p>
+        <p>The area of the floorplan rounded up to 1 decimal place is {{ area(3.8, 4.85)|round(1, 'ceil') }} square metres</p>
+    </div>
+
+    <div>
+        <h1>Mes Dates</h1>
+        <p>Today, now is {{ "now"|date("m/d/Y") }}</p>
+        <p>3 days ago was {{ "3 days ago"|date("m/d/Y") }}</p>
+        <p>Yesterday was {{ "yesterday"|date("m/d/Y") }}</p>
     </div>
 {% endblock %}
