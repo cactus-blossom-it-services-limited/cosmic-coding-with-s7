@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
+//use Symfony\Component\HttpFoundation\Session\Session;
 
 class AFSessionController extends AbstractController
 {
@@ -13,10 +13,12 @@ class AFSessionController extends AbstractController
     {
         // This one-liner will start the session
         // No session class use statement is required
-//        $session = $request->getSession();
+        $session = $request->getSession();
         // Or add session class use statement and two more lines
-        $session = new Session();
-        $session->start();
+        // Add a use statement for the Request class
+        // inject the Request object into the controller action
+//        $session = new Session();
+//        $session->start();
 
         $songs = [
             [
@@ -38,6 +40,8 @@ class AFSessionController extends AbstractController
         ];
 
         $session->set('songs', $songs);
+
+        $session->get('thingy');
         $best_songs = $session->get('songs');
         // Provides a fallback value if the attribute is not in the session store
         $good_song = $session->get('song_if_none', $song_if_none);
@@ -58,6 +62,7 @@ class AFSessionController extends AbstractController
             'controller_name' => 'SessionController',
             'best_songs' => $best_songs,
             'good_song' => $good_song,
+            'thingy' => $session->get('thingy'),
         ])->setMaxAge(100);
     }
 }

@@ -13,16 +13,18 @@
 - Sessions are started as soon as any session data is accessed
 - By default, sessions cookies are created for anonymous users
 - This can impact performance
-- [ ] Store sessions in the database
+- [x] Store sessions in the database
 - [ ] Use debugging commands for session configuration
 - [Symfony docs session configuration](https://symfony.com/doc/current/reference/configuration/framework.html#config-framework-session)
 - [store sessions in a database](https://symfony.com/doc/current/session.html#store-sessions-in-a-database)
 - [ ] Login to the site
-- [ ] Make sure that users can register or be manually loaded
-- [ ] Create login and logout forms.
+- [ ] Create a registration form using make command
+- [ ] Create a login form using make command
+- [ ] Register a new user account
+- [ ] Login using that account
 - [ ] Setup basic security firewalls.
-- [ ] Find out if the database runs in docker or is sqlite
-- [ ] Start the database
+- [x] Find out if the database runs in docker or is sqlite
+- [x] Start the database
 - [ ] Add fixtures to load fake users
 
 ### Advanced routing
@@ -51,7 +53,20 @@
 - Then run: `psql --user=app --port=32770 --host=127.0.0.1 --password app` where 'app' is name of db
 - In psql client run: `ALTER USER user_name WITH PASSWORD 'new_password';`
 - Alternatively run: `docker compose exec database psql --username app --password app` then enter the password
-  `
+
+### HTTP Request and Response Objects
+-[x] Create a new Controller nommé LaDemandeHttp
+- [ ] Utilisez les méthodes de la HTTPFoundation component
+- [ ] Utilise $request = Request::createFromGlobals();
+- [les fondamentales de http](https://symfony.com/doc/current/introduction/http_fundamentals.html#requests-and-responses-in-php)
+
+### HTTP Kernel
+- [] Utilisez les méthodes de la DataCollectorInterface
+[les méthodes de la DataCollectorInterface](https://github.com/symfony/symfony/blob/2.3/src/Symfony/Component/HttpKernel/DataCollector/DataCollectorInterface.php)
+
+### Caching
+- [ ] Use bin/console debug:autowiring cache
+- 
 `code`
 Link 	[title](https://www.example.com)
 **bold text**

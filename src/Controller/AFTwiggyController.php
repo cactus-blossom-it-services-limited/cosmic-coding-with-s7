@@ -11,7 +11,7 @@ class AFTwiggyController extends AbstractController
     #[Route('/a/f/twiggy', name: 'app_af_twiggy')]
     public function index(): Response
     {
-        return $this->render('af_twiggy/af_twiggy.html.twig', [
+        return $this->render('af_twiggy/les_détails_de_la_demande.html.twig', [
             'controller_name' => 'AFTwiggyController',
         ]);
     }
