@@ -31,7 +31,6 @@ class MainController extends AbstractController
 //        dd($best_songs);
 
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
-
         $person = [
             'first_name' => 'Wouter',
         ];
@@ -119,9 +118,6 @@ class MainController extends AbstractController
         var_dump($propertyAccessor->getValue($starliner, 'children[0].captain')); // John The Captain
         var_dump($propertyAccessor->getValue($starliner, 'children[1].status')); // Growing
 
-
-///////////////////////////////////////////////////////////////////////////////////////
-
         /* From the SymfonyCasts tutorials */
 
         /* From Symfonycasts Testing tutorials */
@@ -142,12 +138,15 @@ class MainController extends AbstractController
             'status' => 'under construction',
         ];
 
+        $holiday_price = 4894;
+
         return $this->render('main/homepage.html.twig', [
             'numberOfStarships' => $starshipCount,
             'myShip' => $myShip,
             'dinos' => $dinos,
             'best_songs' => $best_songs,
             'thingy' => $thingy,
+            'holiday_price' => $holiday_price,
         ]);
     }
 }
