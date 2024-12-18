@@ -23,14 +23,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    
+
     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler:
         arguments:
             - '%env(DATABASE_URL)%'
             # The table used to store sessions is called sessions by default and defines
             # certain column names. You can configure these values with the second argument
             # passed to the PdoSessionHandler service:
-            - { db_table: 'customer_session', db_id_col: 'guid' }
+            # the following line does not enable database sessions
+            # - { db_username: 'app', db_password: 'password', db_table: 'customer_session', db_id_col: 'guid' }
             # you can also use PDO configuration, but requires passing two arguments
             # - 'mysql:dbname=mydatabase; host=myhost; port=myport'
             # - { db_username: myuser, db_password: mypassword }
